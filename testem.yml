@@ -5,3 +5,6 @@ src_files:
   - test/tests/**/*.js
 launch_in_dev:
   - PhantomJS
+launch_in_ci:
+  - Firefox
+  - PhantomJS
