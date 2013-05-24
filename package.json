@@ -1,0 +1,13 @@
+{
+  "name": "flight-mocha-test",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "(cd test; bower install); testem ci"
+  },
+  "devDependencies": {
+    "bower": "*",
+    "expect.js": "*",
+    "sinon": "*",
+    "testem": "*"
+  }
+}

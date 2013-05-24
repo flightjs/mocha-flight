@@ -1,0 +1,25 @@
+{
+  "name": "flight-mocha",
+  "version": "0.1.0",
+  "repo": "naoina/flight-mocha",
+  "description": "Extensions to the Mocha test framework for use with Flight",
+  "keywords": [
+    "flight",
+    "mocha",
+    "test"
+  ],
+  "main": "lib/flight-mocha.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "package.json",
+    "testem.yml",
+    ".gitignore",
+    ".travis.yml"
+  ],
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  }
+}
