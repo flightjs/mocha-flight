@@ -1,4 +1,4 @@
-# flight-mocha
+# flight-mocha [![Build Status](https://travis-ci.org/naoina/flight-mocha.png?branch=master)](https://travis-ci.org/naoina/flight-mocha)
 
 Extensions to the Mocha test framework for use with [Flight](https://github.com/twitter/flight)
 
