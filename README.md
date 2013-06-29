@@ -1,34 +1,34 @@
-# flight-mocha [![Build Status](https://travis-ci.org/naoina/flight-mocha.png?branch=master)](https://travis-ci.org/naoina/flight-mocha)
+# flight-mocha [![Build Status](https://travis-ci.org/flightjs/mocha-flight.png?branch=master)](https://travis-ci.org/flightjs/mocha-flight)
 
-Extensions to the Mocha test framework for use with [Flight](https://github.com/twitter/flight)
-
-flight-mocha is based on [flight-jasmine](https://github.com/twitter/flight-jasmine)
-but assertion and Test Double libraries aren't included.
+Extensions to the Mocha test framework for use with [Flight](https://github.com/flightjs/flight)
 
 ## Installation
 
-Recommend using [Bower](https://github.com/twitter/bower)
+We recommend that you use [Bower](http://bower.io/):
 
 ```bash
-% bower install --save-dev flight-mocha
+bower install --save-dev mocha-flight
 ```
 
-flight-mocha depends on [mocha](https://github.com/visionmedia/mocha)
+Include [mocha-jasmine.js](https://raw.github.com/flightjs/mocha-flight/master/lib/mocha-flight.js)
+in your app and load it in your test runner.
+
+N.B. mocha-flight depends on [Mocha](https://github.com/visionmedia/mocha)
 
 ## Usage
 
-In this examples, assertion library uses the [expect.js](https://github.com/LearnBoost/expect.js)
+These examples use the [chai.js](http://chaijs.com/) assertion library.
 
 ### Components
 
 ```javascript
-describeComponent('path/to/component', function() {
-  beforeEach(function() {
+describeComponent('path/to/component', function () {
+  beforeEach(function () {
     setupComponent();
   });
 
-  it("should do x", function() {
-    // a component instance is now accessible as this.component
+  it('should do x', function () {
+    // a component instance is now accessible as `this.component`
     // the component root node is attached to the DOM
     // the component root node is also available as this.$node
   });
@@ -38,21 +38,21 @@ describeComponent('path/to/component', function() {
 ### Mixins
 
 ```javascript
-describeMixin('path/to/mixin', function() {
+describeMixin('path/to/mixin', function () {
   // initialize the component and attach it to the DOM
-  beforeEach(function() {
+  beforeEach(function () {
     setupComponent();
   });
 
-  it("should do x", function() {
-    expect(this.component.doSomething()).to.be(expected);
+  it('should do x', function () {
+    expect(this.component.doSomething()).to.equal(expected);
   });
 });
 ```
 
 ### Event spy
 
-Please use the [sinon.js](https://github.com/cjohansen/Sinon.JS) or other similar library.
+You will need to use a library like [sinon.js](https://github.com/cjohansen/Sinon.JS).
 
 ### setupComponent
 
@@ -65,9 +65,9 @@ Calling `setupComponent` twice will create an instance, tear it down and create 
 #### HTML Fixtures
 
 ```javascript
-describeComponent('ui/twitter_profile', function() {
+describeComponent('ui/twitter_profile', function () {
   // is the component attached to the fixture?
-  it("this.component.$node has class 'foo'", function() {
+  it('this.component.$node has class "foo"', function () {
     setupComponent('<span class="foo">Test</span>');
     expect(this.component.$node.find('span').hasClass('foo')).to.be.ok();
   });
@@ -79,11 +79,11 @@ describeComponent('ui/twitter_profile', function() {
 ```javascript
 describeComponent('data/twitter_profile', function() {
   // is the option set correctly?
-  it("this.component.attr.baseUrl is set", function() {
+  it('this.component.attr.baseUrl is set', function() {
     setupComponent({
       baseUrl: 'http://twitter.com/1.1/'
     });
-    expect(this.component.attr.baseUrl).to.be('http://twitter.com/1.1/');
+    expect(this.component.attr.baseUrl).to.equal('http://twitter.com/1.1/');
   });
 });
 ```
