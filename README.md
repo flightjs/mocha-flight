@@ -1,4 +1,4 @@
-# flight-mocha [![Build Status](https://travis-ci.org/flightjs/mocha-flight.png?branch=master)](https://travis-ci.org/flightjs/mocha-flight)
+# mocha-flight [![Build Status](https://travis-ci.org/flightjs/mocha-flight.png?branch=master)](https://travis-ci.org/flightjs/mocha-flight)
 
 Extensions to the Mocha test framework for use with [Flight](https://github.com/flightjs/flight)
 
