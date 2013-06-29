@@ -5,9 +5,7 @@
     "test": "(cd test; bower install); testem ci"
   },
   "devDependencies": {
-    "bower": "*",
-    "expect.js": "*",
-    "sinon": "*",
-    "testem": "*"
+    "karma": "~0.8.5",
+    "sinon": "*"
   }
 }
