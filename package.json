@@ -1,11 +1,11 @@
 {
-  "name": "flight-mocha-test",
+  "name": "mocha-flight",
   "version": "0.1.0",
-  "scripts": {
-    "test": "(cd test; bower install); testem ci"
-  },
   "devDependencies": {
     "karma": "~0.8.5",
     "sinon": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
   }
 }
