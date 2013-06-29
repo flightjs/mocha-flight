@@ -13,7 +13,8 @@
     "test",
     "package.json",
     "karma.conf.js",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
   ],
   "devDependencies": {
     "chai": "~1.7.2",
