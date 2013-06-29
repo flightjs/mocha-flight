@@ -10,7 +10,7 @@ We recommend that you use [Bower](http://bower.io/):
 bower install --save-dev mocha-flight
 ```
 
-Include [mocha-jasmine.js](https://raw.github.com/flightjs/mocha-flight/master/lib/mocha-flight.js)
+Include [mocha-flight.js](https://raw.github.com/flightjs/mocha-flight/master/lib/mocha-flight.js)
 in your app and load it in your test runner.
 
 N.B. mocha-flight depends on [Mocha](https://github.com/visionmedia/mocha)
