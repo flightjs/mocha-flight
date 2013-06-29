@@ -1,5 +1,7 @@
 === HEAD
 
+=== 0.2.0 (June 29, 2013)
+
 * Rename to 'mocha-flight'.
 * Switch to using Karma test runner.
 
