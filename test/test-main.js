@@ -11,9 +11,8 @@ requirejs.config({
   baseUrl: '/base',
 
   paths: {
-    'flight': 'components/flight',
-    'mock': 'test/mock',
-    'chai': 'components/chai'
+    'flight': 'bower_components/flight',
+    'mock': 'test/mock'
   },
 
   // ask Require.js to load these files (all our tests)
