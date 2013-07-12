@@ -1,5 +1,10 @@
 === HEAD
 
+=== 0.2.1 (July 12, 2013)
+
+* Minor fixes to development setup and docs.
+* Set `this.$node` to `null` before each test.
+
 === 0.2.0 (June 29, 2013)
 
 * Rename to 'mocha-flight'.
