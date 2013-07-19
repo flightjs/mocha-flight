@@ -108,7 +108,7 @@ define(function (require) {
 
       it('should remove $node by afterEach', function () {
         expect(this.$node).to.equal(null);
-        expect($('.component.root').length).to.equal(0);
+        expect($('.component-root').length).to.equal(0);
       });
 
       it('should passed options to component if object givent to first argument', function () {
