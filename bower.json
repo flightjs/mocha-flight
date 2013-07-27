@@ -1,6 +1,6 @@
 {
   "name": "mocha-flight",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Extensions to the Mocha test framework for use with Flight",
   "keywords": [
     "flight",
