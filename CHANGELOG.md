@@ -1,5 +1,7 @@
 === HEAD
 
+* Upgrade to Karma 0.10.x.
+
 === 0.3.0 (July 27, 2013)
 
 * Add support for testing with Flight 1.1.0.
