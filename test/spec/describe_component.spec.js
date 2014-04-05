@@ -91,18 +91,14 @@ define(function (require) {
       it('should set fixture if string given to first argument', function () {
         setupComponent('<div id="test_fixture1"/>');
         expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root">' +
-            '<div id="test_fixture1"></div>' +
-          '</div>'
+          '<div class="component-root" id="test_fixture1"></div>'
         );
       });
 
       it('should set fixture if jQuery object given to first argument', function () {
         setupComponent($('<div id="test_fixture2"/>'));
         expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root">' +
-            '<div id="test_fixture2"></div>' +
-          '</div>'
+          '<div class="component-root" id="test_fixture2"></div>'
         );
       });
 
@@ -126,24 +122,18 @@ define(function (require) {
         });
         expect(this.component.attr.param).to.equal('testFixtureParam');
         expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root">' +
-            '<div id="test_fixture_both"></div>' +
-          '</div>'
+          '<div class="component-root" id="test_fixture_both"></div>'
         );
       });
 
       it('should reset a fixture if multiple calls', function () {
         setupComponent('<div id="fixture1"/>');
         expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root">' +
-            '<div id="fixture1"></div>' +
-          '</div>'
+          '<div class="component-root" id="fixture1"></div>'
         );
         setupComponent('<div id="fixture2"/>');
         expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root">' +
-            '<div id="fixture2"></div>' +
-          '</div>'
+          '<div class="component-root" id="fixture2"></div>'
         );
       });
 
