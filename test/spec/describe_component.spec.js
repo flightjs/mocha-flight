@@ -1,9 +1,9 @@
-/*global describeComponent, setupComponent, chai*/
+/*global describeComponent, setupComponent*/
 
 define(function (require) {
   'use strict';
 
-  var expect = chai.expect;
+  var expect = require('chai').expect;
   var defineComponent = require('flight/lib/component');
   var Example = require('mock/example');
 
