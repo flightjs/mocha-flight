@@ -8,23 +8,13 @@ module.exports = function (config) {
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
-    frameworks: ['mocha'],
+    frameworks: ['requirejs', 'mocha', 'sinon'],
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/chai/chai.js',
-      'bower_components/es5-shim/es5-shim.js',
-      'bower_components/es5-shim/es5-sham.js',
-      'bower_components/jquery/jquery.js',
-      'node_modules/sinon/pkg/sinon.js',
-
       'lib/mocha-flight.js',
 
-      // hack to load RequireJS after the shim libs
-      'node_modules/karma-requirejs/lib/require.js',
-      'node_modules/karma-requirejs/lib/adapter.js',
-
-      {pattern: 'bower_components/flight/**/*.js', included: false},
+      {pattern: 'bower_components/**/*.js', included: false},
       {pattern: 'test/mock/*.js', included: false},
       {pattern: 'test/spec/*.js', included: false},
 
@@ -48,15 +38,6 @@ module.exports = function (config) {
 
     // Auto run tests on start (when browsers are captured) and exit
     // CLI --single-run --no-single-run
-    singleRun: false,
-
-    plugins: [
-      'karma-mocha',
-      'karma-requirejs',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-ie-launcher',
-      'karma-safari-launcher'
-    ]
+    singleRun: false
   });
 };

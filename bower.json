@@ -17,7 +17,7 @@
     "CONTRIBUTING.md"
   ],
   "devDependencies": {
-    "chai": "~1.7.2",
-    "flight": "~1.1.0"
+    "chai": "~1.9.1",
+    "flight": "~1.1.4"
   }
 }
