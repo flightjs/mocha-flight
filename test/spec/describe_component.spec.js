@@ -1,9 +1,9 @@
-/*global describeComponent, setupComponent, chai*/
+/*global describeComponent, setupComponent*/
 
 define(function (require) {
   'use strict';
 
-  var expect = chai.expect;
+  var expect = require('chai').expect;
   var defineComponent = require('flight/lib/component');
   var Example = require('mock/example');
 
@@ -90,16 +90,14 @@ define(function (require) {
 
       it('should set fixture if string given to first argument', function () {
         setupComponent('<div id="test_fixture1"/>');
-        expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root" id="test_fixture1"></div>'
-        );
+        expect(this.$node.hasClass('component-root')).to.equal(true);
+        expect(this.$node.attr('id')).to.equal('test_fixture1');
       });
 
       it('should set fixture if jQuery object given to first argument', function () {
         setupComponent($('<div id="test_fixture2"/>'));
-        expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root" id="test_fixture2"></div>'
-        );
+        expect(this.$node.hasClass('component-root')).to.equal(true);
+        expect(this.$node.attr('id')).to.equal('test_fixture2');
       });
 
       it('should remove $node by afterEach', function () {
@@ -121,20 +119,18 @@ define(function (require) {
           param: 'testFixtureParam'
         });
         expect(this.component.attr.param).to.equal('testFixtureParam');
-        expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root" id="test_fixture_both"></div>'
-        );
+        expect(this.$node.hasClass('component-root')).to.be.true;
+        expect(this.$node.attr('id')).to.equal('test_fixture_both');
       });
 
       it('should reset a fixture if multiple calls', function () {
         setupComponent('<div id="fixture1"/>');
-        expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root" id="fixture1"></div>'
-        );
+        expect(this.$node.hasClass('component-root')).to.be.true;
+        expect(this.$node.attr('id')).to.equal('fixture1');
+
         setupComponent('<div id="fixture2"/>');
-        expect($('<div/>').append(this.$node).html()).to.equal(
-          '<div class="component-root" id="fixture2"></div>'
-        );
+        expect(this.$node.hasClass('component-root')).to.be.true;
+        expect(this.$node.attr('id')).to.equal('fixture2');
       });
 
       it('should calls this.component.teardown() if multiple calls', function () {
