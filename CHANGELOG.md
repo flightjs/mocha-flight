@@ -1,6 +1,9 @@
 === HEAD
 
-* Upgrade to Karma 0.10.x.
+=== 0.4.0 (October 14, 2013)
+
+* Support Mocha >=1.19.x.
+* Upgrade to Karma 0.12.x.
 
 === 0.3.0 (July 27, 2013)
 

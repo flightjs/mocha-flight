@@ -1,6 +1,6 @@
 {
   "name": "mocha-flight",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "devDependencies": {
     "karma-mocha": "~0.1.4",
     "karma-requirejs": "~0.2.2",
