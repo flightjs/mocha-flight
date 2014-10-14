@@ -18,6 +18,6 @@
   ],
   "devDependencies": {
     "chai": "~1.9.1",
-    "flight": "~1.2.0"
+    "flight": ">=1.2.0"
   }
 }
