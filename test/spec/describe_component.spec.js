@@ -6,6 +6,7 @@ define(function (require) {
   var expect = require('chai').expect;
   var defineComponent = require('flight/lib/component');
   var Example = require('mock/example');
+  var OtherExample = require('mock/other-example');
 
   describeComponent('mock/example', function () {
     describe('this.Component', function () {
@@ -144,6 +145,22 @@ define(function (require) {
           this.Component.prototype.teardown.restore();
         }
       });
+    });
+  });
+
+  describeComponent('mock/other-example', function () {
+    it('should support test suites for different components', function () {
+      setupComponent();
+      expect(this.Component).to.equal(OtherExample);
+      expect(this.component.attr.param).to.equal('otherParam');
+    });
+  });
+
+  describeComponent('mock/example', function () {
+    it('should support multiple test suites on the same component', function () {
+      setupComponent();
+      expect(this.Component).to.equal(Example);
+      expect(this.component).to.be.an.instanceof(Example);
     });
   });
 });
