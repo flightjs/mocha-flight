@@ -55,6 +55,26 @@ describeMixin('path/to/mixin', function () {
 
 You will need to use a library like [sinon.js](https://github.com/cjohansen/Sinon.JS).
 
+```javascript
+describeComponent('path/to/component', function () {
+  beforeEach(function () {
+    setupComponent();
+  });
+
+  it('should do x', function () {
+    sinon.stub(this.component, 'method');
+
+    // You need to initialize the component after stubbing the function so the
+    // event will be bound and call the stubbed callback function
+    initializeComponent();
+
+    $(document).trigger('EVENT_NAME');
+    this.component.method.calledOnce.should.be.true;
+    done();
+  });
+});
+```
+
 ### setupComponent
 
 ```javascript
