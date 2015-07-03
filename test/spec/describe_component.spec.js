@@ -154,6 +154,13 @@ define(function (require) {
           this.Component.prototype.teardown.restore();
         }
       });
+      it('should do call correct function when trigger an event', function () {
+        setupComponent();
+        sinon.stub(this.component, 'doing');
+        initializeComponent();
+        $(this.$node).trigger('SomeEvent');
+        expect(this.component.doing.calledOnce).to.be.true;
+      });
     });
   });
 
