@@ -1,4 +1,4 @@
-/*global describeComponent, setupComponent*/
+/*global describeComponent, setupComponent, initializeComponent*/
 
 define(function (require) {
   'use strict';
@@ -67,8 +67,10 @@ define(function (require) {
       it('should automatically call before setupComponent() if component is exists', function () {
         expect(this.component).to.equal(null);
         setupComponent();
+        initializeComponent();
         expect(this.component.teardown.callCount).to.equal(0);
         setupComponent();
+        initializeComponent();
         expect(this.component.teardown.callCount).to.equal(1);
       });
 
@@ -108,10 +110,12 @@ define(function (require) {
 
       it('should passed options to component if object givent to first argument', function () {
         setupComponent();
+        initializeComponent();
         expect(this.component.attr.param).to.equal('defaultParam');
         setupComponent({
           param: 'testParam'
         });
+        initializeComponent();
         expect(this.component.attr.param).to.equal('testParam');
       });
 
@@ -119,6 +123,7 @@ define(function (require) {
         setupComponent('<div id="test_fixture_both"/>', {
           param: 'testFixtureParam'
         });
+        initializeComponent();
         expect(this.component.attr.param).to.equal('testFixtureParam');
         expect(this.$node.hasClass('component-root')).to.be.true;
         expect(this.$node.attr('id')).to.equal('test_fixture_both');
@@ -126,10 +131,12 @@ define(function (require) {
 
       it('should reset a fixture if multiple calls', function () {
         setupComponent('<div id="fixture1"/>');
+        initializeComponent();
         expect(this.$node.hasClass('component-root')).to.be.true;
         expect(this.$node.attr('id')).to.equal('fixture1');
 
         setupComponent('<div id="fixture2"/>');
+        initializeComponent();
         expect(this.$node.hasClass('component-root')).to.be.true;
         expect(this.$node.attr('id')).to.equal('fixture2');
       });
@@ -138,12 +145,21 @@ define(function (require) {
         sinon.spy(this.Component.prototype, 'teardown');
         try {
           setupComponent();
+          initializeComponent();
           expect(this.component.teardown.callCount).to.equal(0);
           setupComponent();
+          initializeComponent();
           expect(this.component.teardown.callCount).to.equal(1);
         } finally {
           this.Component.prototype.teardown.restore();
         }
+      });
+      it('should do call correct function when trigger an event', function () {
+        setupComponent();
+        sinon.stub(this.component, 'doing');
+        initializeComponent();
+        $(this.$node).trigger('SomeEvent');
+        expect(this.component.doing.calledOnce).to.be.true;
       });
     });
   });
@@ -151,6 +167,7 @@ define(function (require) {
   describeComponent('mock/other-example', function () {
     it('should support test suites for different components', function () {
       setupComponent();
+      initializeComponent();
       expect(this.Component).to.equal(OtherExample);
       expect(this.component.attr.param).to.equal('otherParam');
     });
